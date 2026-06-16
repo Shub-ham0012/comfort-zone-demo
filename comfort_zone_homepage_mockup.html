@@ -1,0 +1,370 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .cz-wrap { font-family: var(--font-sans); color: var(--color-text-primary); background: #f0f4f8; }
+
+  .cz-nav { background: #0a1628; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  .cz-logo { color: #fff; font-size: 18px; font-weight: 500; letter-spacing: 0.5px; }
+  .cz-logo span { color: #3b9eff; }
+  .cz-nav-links { display: flex; gap: 20px; align-items: center; }
+  .cz-nav-links a { color: #b0c4d8; font-size: 13px; text-decoration: none; }
+  .cz-nav-cta { background: #1a6fe8; color: #fff; font-size: 13px; padding: 7px 16px; border-radius: 6px; border: none; cursor: pointer; }
+
+  .cz-hero { background: #0a1628; padding: 3.5rem 2rem 3rem; position: relative; overflow: hidden; }
+  .cz-hero-badge { display: inline-block; background: rgba(59,158,255,0.15); color: #3b9eff; font-size: 11px; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(59,158,255,0.3); margin-bottom: 1.2rem; letter-spacing: 0.5px; }
+  .cz-hero h1 { font-size: 26px; font-weight: 500; color: #fff; line-height: 1.35; margin-bottom: 0.9rem; max-width: 500px; }
+  .cz-hero h1 span { color: #3b9eff; }
+  .cz-hero-sub { font-size: 14px; color: #8aa4c0; max-width: 440px; line-height: 1.6; margin-bottom: 2rem; }
+  .cz-hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 2.5rem; }
+  .btn-primary { background: #1a6fe8; color: #fff; border: none; padding: 11px 22px; border-radius: 8px; font-size: 14px; cursor: pointer; display: flex; align-items: center; gap: 7px; }
+  .btn-whatsapp { background: #1db954; color: #fff; border: none; padding: 11px 22px; border-radius: 8px; font-size: 14px; cursor: pointer; display: flex; align-items: center; gap: 7px; }
+  .cz-trust { display: flex; gap: 20px; flex-wrap: wrap; }
+  .cz-trust-item { display: flex; align-items: center; gap: 8px; }
+  .cz-trust-icon { width: 32px; height: 32px; border-radius: 8px; background: rgba(59,158,255,0.12); display: flex; align-items: center; justify-content: center; color: #3b9eff; font-size: 15px; }
+  .cz-trust-text strong { font-size: 13px; font-weight: 500; color: #fff; display: block; }
+  .cz-trust-text span { font-size: 11px; color: #7a9ab8; }
+  .cz-hero-visual { position: absolute; right: 2rem; top: 50%; transform: translateY(-50%); width: 200px; opacity: 0.08; }
+
+  .cz-section { padding: 2.5rem 2rem; }
+  .cz-section-label { font-size: 11px; color: #1a6fe8; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.4rem; font-weight: 500; }
+  .cz-section-title { font-size: 20px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 0.4rem; }
+  .cz-section-sub { font-size: 13px; color: var(--color-text-secondary); margin-bottom: 1.8rem; }
+
+  .cz-services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+  .cz-svc-card { background: #fff; border: 0.5px solid #dde4ef; border-radius: 12px; padding: 1.2rem 1rem; transition: border-color 0.2s; }
+  .cz-svc-icon { width: 44px; height: 44px; border-radius: 10px; background: #eef4ff; display: flex; align-items: center; justify-content: center; color: #1a6fe8; font-size: 20px; margin-bottom: 0.8rem; }
+  .cz-svc-card h3 { font-size: 13px; font-weight: 500; color: #1a2840; margin-bottom: 0.3rem; }
+  .cz-svc-card p { font-size: 11px; color: #6b7fa0; line-height: 1.5; }
+  .cz-svc-card .cz-svc-price { font-size: 12px; color: #1a6fe8; font-weight: 500; margin-top: 0.6rem; }
+
+  .cz-why { background: #0a1628; }
+  .cz-why .cz-section-label { color: #3b9eff; }
+  .cz-why .cz-section-title { color: #fff; }
+  .cz-why .cz-section-sub { color: #7a9ab8; }
+  .cz-why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
+  .cz-why-card { background: rgba(255,255,255,0.05); border: 0.5px solid rgba(59,158,255,0.2); border-radius: 12px; padding: 1.2rem 1rem; text-align: center; }
+  .cz-why-icon { width: 44px; height: 44px; border-radius: 50%; background: rgba(59,158,255,0.12); display: flex; align-items: center; justify-content: center; color: #3b9eff; font-size: 20px; margin: 0 auto 0.7rem; }
+  .cz-why-card h3 { font-size: 13px; font-weight: 500; color: #d0e4ff; margin-bottom: 0.3rem; }
+  .cz-why-card p { font-size: 11px; color: #6a8aaa; line-height: 1.5; }
+
+  .cz-stats { background: #1a6fe8; padding: 1.5rem 2rem; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 12px; }
+  .cz-stat { text-align: center; }
+  .cz-stat strong { font-size: 22px; font-weight: 500; color: #fff; display: block; }
+  .cz-stat span { font-size: 11px; color: rgba(255,255,255,0.75); }
+
+  .cz-process-steps { display: flex; align-items: center; gap: 0; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; }
+  .cz-step { flex: 1; min-width: 80px; text-align: center; }
+  .cz-step-num { width: 38px; height: 38px; border-radius: 50%; background: #eef4ff; border: 2px solid #1a6fe8; display: flex; align-items: center; justify-content: center; color: #1a6fe8; font-size: 14px; font-weight: 500; margin: 0 auto 0.5rem; }
+  .cz-step-label { font-size: 11px; color: var(--color-text-secondary); line-height: 1.4; }
+  .cz-step-icon { font-size: 16px; color: #1a6fe8; margin-bottom: 4px; }
+  .cz-step-arrow { color: #c0cfe0; font-size: 16px; flex-shrink: 0; margin: 0 4px; margin-bottom: 24px; }
+
+  .cz-testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+  .cz-testi-card { background: #fff; border: 0.5px solid #dde4ef; border-radius: 12px; padding: 1.2rem; }
+  .cz-stars { color: #f4a31a; font-size: 12px; margin-bottom: 0.6rem; letter-spacing: 2px; }
+  .cz-testi-card p { font-size: 12px; color: #4a5970; line-height: 1.6; margin-bottom: 0.8rem; font-style: italic; }
+  .cz-testi-author { display: flex; align-items: center; gap: 8px; }
+  .cz-testi-avatar { width: 32px; height: 32px; border-radius: 50%; background: #eef4ff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; color: #1a6fe8; }
+  .cz-testi-name { font-size: 12px; font-weight: 500; color: #1a2840; }
+  .cz-testi-loc { font-size: 10px; color: #8a9aaf; }
+
+  .cz-areas-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .cz-area-chip { background: #eef4ff; border: 0.5px solid #c0d4f5; color: #1a4a8a; font-size: 12px; padding: 6px 14px; border-radius: 20px; display: flex; align-items: center; gap: 5px; }
+
+  .cz-amc { background: #fff; border: 0.5px solid #dde4ef; border-radius: 12px; padding: 1.5rem; margin-top: 1rem; }
+  .cz-amc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 1rem; }
+  .cz-amc-card { border: 0.5px solid #dde4ef; border-radius: 10px; padding: 1rem; text-align: center; }
+  .cz-amc-card.featured { border-color: #1a6fe8; border-width: 1.5px; }
+  .cz-amc-badge { font-size: 10px; background: #1a6fe8; color: #fff; padding: 2px 8px; border-radius: 10px; display: inline-block; margin-bottom: 6px; }
+  .cz-amc-name { font-size: 13px; font-weight: 500; color: #1a2840; margin-bottom: 2px; }
+  .cz-amc-price { font-size: 18px; font-weight: 500; color: #1a6fe8; margin-bottom: 6px; }
+  .cz-amc-price span { font-size: 11px; color: #8a9aaf; }
+  .cz-amc-feat { font-size: 11px; color: #5a7090; line-height: 1.7; }
+
+  .cz-cta { background: linear-gradient(135deg, #0a1628, #0d2150); padding: 3rem 2rem; text-align: center; }
+  .cz-cta h2 { font-size: 22px; font-weight: 500; color: #fff; margin-bottom: 0.5rem; }
+  .cz-cta p { font-size: 14px; color: #7a9ab8; margin-bottom: 1.8rem; }
+  .cz-cta-btns { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .btn-call { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.3); padding: 12px 24px; border-radius: 8px; font-size: 14px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+  .btn-wa-cta { background: #1db954; color: #fff; border: none; padding: 12px 24px; border-radius: 8px; font-size: 14px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+
+  .cz-footer { background: #060e1c; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .cz-footer-logo { color: #fff; font-size: 14px; font-weight: 500; }
+  .cz-footer-logo span { color: #3b9eff; }
+  .cz-footer-copy { font-size: 11px; color: #445566; }
+  .cz-footer-links { display: flex; gap: 12px; }
+  .cz-footer-links a { font-size: 11px; color: #445566; text-decoration: none; }
+
+  .divider { height: 1px; background: #e8eef7; margin: 0; }
+  .bg-light { background: #f5f8fc; }
+</style>
+
+<div class="cz-wrap">
+  <h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Comfort Zone AC Service Company — homepage mockup for Muzaffarpur, Bihar</h2>
+
+  <nav class="cz-nav">
+    <div class="cz-logo">COMFORT <span>ZONE</span></div>
+    <div class="cz-nav-links">
+      <a href="#">Services</a>
+      <a href="#">AMC Plans</a>
+      <a href="#">Areas</a>
+      <a href="#">Contact</a>
+      <button class="cz-nav-cta"><i class="ti ti-phone" aria-hidden="true"></i> Call Now</button>
+    </div>
+  </nav>
+
+  <section class="cz-hero">
+    <div class="cz-hero-badge">⭐ Muzaffarpur's #1 Rated AC Service</div>
+    <h1>Muzaffarpur's Trusted<br><span>AC Service Experts</span></h1>
+    <p class="cz-hero-sub">Professional AC repair, installation, gas refilling & deep cleaning — at your doorstep. Fast. Reliable. Affordable.</p>
+    <div class="cz-hero-btns">
+      <button class="btn-primary"><i class="ti ti-calendar" aria-hidden="true"></i> Book Service</button>
+      <button class="btn-whatsapp"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i> WhatsApp Now</button>
+    </div>
+    <div class="cz-trust">
+      <div class="cz-trust-item">
+        <div class="cz-trust-icon"><i class="ti ti-users" aria-hidden="true"></i></div>
+        <div class="cz-trust-text"><strong>1000+</strong><span>Happy Customers</span></div>
+      </div>
+      <div class="cz-trust-item">
+        <div class="cz-trust-icon"><i class="ti ti-shield-check" aria-hidden="true"></i></div>
+        <div class="cz-trust-text"><strong>15 Days</strong><span>Service Warranty</span></div>
+      </div>
+      <div class="cz-trust-item">
+        <div class="cz-trust-icon"><i class="ti ti-tool" aria-hidden="true"></i></div>
+        <div class="cz-trust-text"><strong>Expert</strong><span>Technicians</span></div>
+      </div>
+      <div class="cz-trust-item">
+        <div class="cz-trust-icon"><i class="ti ti-bolt" aria-hidden="true"></i></div>
+        <div class="cz-trust-text"><strong>Same Day</strong><span>Service Available</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cz-stats">
+    <div class="cz-stat"><strong>1000+</strong><span>Customers Served</span></div>
+    <div class="cz-stat"><strong>8+</strong><span>Years Experience</span></div>
+    <div class="cz-stat"><strong>4.9★</strong><span>Average Rating</span></div>
+    <div class="cz-stat"><strong>50+</strong><span>Monthly Services</span></div>
+  </div>
+
+  <section class="cz-section">
+    <div class="cz-section-label">What We Do</div>
+    <div class="cz-section-title">Our Services</div>
+    <div class="cz-section-sub">All AC brands covered — LG, Voltas, Daikin, Samsung, Hitachi, Blue Star & more</div>
+    <div class="cz-services-grid">
+      <div class="cz-svc-card">
+        <div class="cz-svc-icon"><i class="ti ti-tool" aria-hidden="true"></i></div>
+        <h3>AC Repair</h3>
+        <p>Cooling issues, water leakage, noise problems — all fixed fast.</p>
+        <div class="cz-svc-price">Starting ₹299</div>
+      </div>
+      <div class="cz-svc-card">
+        <div class="cz-svc-icon"><i class="ti ti-settings" aria-hidden="true"></i></div>
+        <h3>AC Installation</h3>
+        <p>New AC setup with proper mounting, wiring & testing.</p>
+        <div class="cz-svc-price">Starting ₹599</div>
+      </div>
+      <div class="cz-svc-card">
+        <div class="cz-svc-icon"><i class="ti ti-droplet" aria-hidden="true"></i></div>
+        <h3>Gas Refilling</h3>
+        <p>Refrigerant refill to restore full cooling performance.</p>
+        <div class="cz-svc-price">Starting ₹1,200</div>
+      </div>
+      <div class="cz-svc-card">
+        <div class="cz-svc-icon"><i class="ti ti-washing-machine" aria-hidden="true"></i></div>
+        <h3>Deep Cleaning</h3>
+        <p>Coil & blower cleaning for healthier, efficient cooling.</p>
+        <div class="cz-svc-price">Starting ₹399</div>
+      </div>
+      <div class="cz-svc-card">
+        <div class="cz-svc-icon"><i class="ti ti-file-invoice" aria-hidden="true"></i></div>
+        <h3>AMC Plans</h3>
+        <p>Annual maintenance contracts for worry-free AC year-round.</p>
+        <div class="cz-svc-price">From ₹1,999/yr</div>
+      </div>
+      <div class="cz-svc-card">
+        <div class="cz-svc-icon"><i class="ti ti-building" aria-hidden="true"></i></div>
+        <h3>Commercial AC</h3>
+        <p>Offices, shops & buildings — multi-unit service available.</p>
+        <div class="cz-svc-price">Custom Quote</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="cz-section cz-why">
+    <div class="cz-section-label">Why Us</div>
+    <div class="cz-section-title">Why Muzaffarpur Trusts Comfort Zone</div>
+    <div class="cz-section-sub">We don't just fix ACs — we earn your trust with every visit</div>
+    <div class="cz-why-grid">
+      <div class="cz-why-card">
+        <div class="cz-why-icon"><i class="ti ti-id-badge-2" aria-hidden="true"></i></div>
+        <h3>Verified Technicians</h3>
+        <p>Background-checked, trained professionals only</p>
+      </div>
+      <div class="cz-why-card">
+        <div class="cz-why-icon"><i class="ti ti-receipt" aria-hidden="true"></i></div>
+        <h3>Transparent Pricing</h3>
+        <p>No hidden charges — price confirmed before work starts</p>
+      </div>
+      <div class="cz-why-card">
+        <div class="cz-why-icon"><i class="ti ti-bolt" aria-hidden="true"></i></div>
+        <h3>Fast Response</h3>
+        <p>Same-day service in most areas of Muzaffarpur</p>
+      </div>
+      <div class="cz-why-card">
+        <div class="cz-why-icon"><i class="ti ti-star" aria-hidden="true"></i></div>
+        <h3>Quality Assured</h3>
+        <p>Genuine spare parts, 15-day service guarantee</p>
+      </div>
+      <div class="cz-why-card">
+        <div class="cz-why-icon"><i class="ti ti-heart" aria-hidden="true"></i></div>
+        <h3>Customer First</h3>
+        <p>4.9★ average rating from 1000+ happy customers</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cz-section bg-light">
+    <div class="cz-section-label">How It Works</div>
+    <div class="cz-section-title">Get Service in 5 Simple Steps</div>
+    <div class="cz-section-sub">Book in under a minute, relax while we handle the rest</div>
+    <div class="cz-process-steps">
+      <div class="cz-step">
+        <div class="cz-step-num">1</div>
+        <div class="cz-step-icon"><i class="ti ti-phone" aria-hidden="true"></i></div>
+        <div class="cz-step-label">Book Service<br><span style="color:#3b9eff;font-size:10px;">Call or WhatsApp</span></div>
+      </div>
+      <div class="cz-step-arrow"><i class="ti ti-arrow-right" aria-hidden="true"></i></div>
+      <div class="cz-step">
+        <div class="cz-step-num">2</div>
+        <div class="cz-step-icon"><i class="ti ti-map-pin" aria-hidden="true"></i></div>
+        <div class="cz-step-label">Technician Visit<br><span style="color:#3b9eff;font-size:10px;">Same day slots</span></div>
+      </div>
+      <div class="cz-step-arrow"><i class="ti ti-arrow-right" aria-hidden="true"></i></div>
+      <div class="cz-step">
+        <div class="cz-step-num">3</div>
+        <div class="cz-step-icon"><i class="ti ti-search" aria-hidden="true"></i></div>
+        <div class="cz-step-label">Diagnosis<br><span style="color:#3b9eff;font-size:10px;">Free assessment</span></div>
+      </div>
+      <div class="cz-step-arrow"><i class="ti ti-arrow-right" aria-hidden="true"></i></div>
+      <div class="cz-step">
+        <div class="cz-step-num">4</div>
+        <div class="cz-step-icon"><i class="ti ti-tool" aria-hidden="true"></i></div>
+        <div class="cz-step-label">Repair / Service<br><span style="color:#3b9eff;font-size:10px;">Genuine parts</span></div>
+      </div>
+      <div class="cz-step-arrow"><i class="ti ti-arrow-right" aria-hidden="true"></i></div>
+      <div class="cz-step">
+        <div class="cz-step-num">5</div>
+        <div class="cz-step-icon"><i class="ti ti-shield-check" aria-hidden="true"></i></div>
+        <div class="cz-step-label">15-Day Support<br><span style="color:#3b9eff;font-size:10px;">Warranty included</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cz-section">
+    <div class="cz-section-label">AMC Plans</div>
+    <div class="cz-section-title">Annual Maintenance Contracts</div>
+    <div class="cz-section-sub">One plan, all year peace of mind — for homes, shops & offices</div>
+    <div class="cz-amc-grid">
+      <div class="cz-amc-card">
+        <div class="cz-amc-name">Silver Plan</div>
+        <div class="cz-amc-price">₹1,999 <span>/year</span></div>
+        <div class="cz-amc-feat">2 free services<br>Priority support<br>10% parts discount</div>
+      </div>
+      <div class="cz-amc-card featured">
+        <div class="cz-amc-badge">Most Popular</div>
+        <div class="cz-amc-name">Gold Plan</div>
+        <div class="cz-amc-price">₹3,499 <span>/year</span></div>
+        <div class="cz-amc-feat">4 free services<br>Gas top-up included<br>20% parts discount</div>
+      </div>
+      <div class="cz-amc-card">
+        <div class="cz-amc-name">Platinum Plan</div>
+        <div class="cz-amc-price">₹5,999 <span>/year</span></div>
+        <div class="cz-amc-feat">Unlimited services<br>Deep clean + gas fill<br>Free spare parts</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="cz-section bg-light">
+    <div class="cz-section-label">Reviews</div>
+    <div class="cz-section-title">What Customers Say</div>
+    <div class="cz-section-sub">Real reviews from real customers across Muzaffarpur</div>
+    <div class="cz-testi-grid">
+      <div class="cz-testi-card">
+        <div class="cz-stars">★★★★★</div>
+        <p>"AC wasn't cooling at all. Comfort Zone technician arrived within 2 hours and fixed it same day. Very professional!"</p>
+        <div class="cz-testi-author">
+          <div class="cz-testi-avatar">RK</div>
+          <div>
+            <div class="cz-testi-name">Rajesh Kumar</div>
+            <div class="cz-testi-loc"><i class="ti ti-map-pin" style="font-size:10px" aria-hidden="true"></i> Brahmpura, Muzaffarpur</div>
+          </div>
+        </div>
+      </div>
+      <div class="cz-testi-card">
+        <div class="cz-stars">★★★★★</div>
+        <p>"Excellent deep cleaning service. My AC is running much better now. Transparent pricing — no surprise charges at all."</p>
+        <div class="cz-testi-author">
+          <div class="cz-testi-avatar">PS</div>
+          <div>
+            <div class="cz-testi-name">Priya Singh</div>
+            <div class="cz-testi-loc"><i class="ti ti-map-pin" style="font-size:10px" aria-hidden="true"></i> Motijheel, Muzaffarpur</div>
+          </div>
+        </div>
+      </div>
+      <div class="cz-testi-card">
+        <div class="cz-stars">★★★★★</div>
+        <p>"Got AMC Gold plan for my office — 4 ACs covered. Best decision. Saved thousands on repairs this summer season."</p>
+        <div class="cz-testi-author">
+          <div class="cz-testi-avatar">AM</div>
+          <div>
+            <div class="cz-testi-name">Amit Mishra</div>
+            <div class="cz-testi-loc"><i class="ti ti-map-pin" style="font-size:10px" aria-hidden="true"></i> Zero Mile, Muzaffarpur</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cz-section">
+    <div class="cz-section-label">Service Areas</div>
+    <div class="cz-section-title">We Serve Across Muzaffarpur</div>
+    <div class="cz-section-sub">Fast response in all major localities — call to confirm your area</div>
+    <div class="cz-areas-grid">
+      <div class="cz-area-chip"><i class="ti ti-map-pin" style="font-size:13px" aria-hidden="true"></i> Muzaffarpur City</div>
+      <div class="cz-area-chip"><i class="ti ti-map-pin" style="font-size:13px" aria-hidden="true"></i> Brahmpura</div>
+      <div class="cz-area-chip"><i class="ti ti-map-pin" style="font-size:13px" aria-hidden="true"></i> Kalambagh</div>
+      <div class="cz-area-chip"><i class="ti ti-map-pin" style="font-size:13px" aria-hidden="true"></i> Motijheel</div>
+      <div class="cz-area-chip"><i class="ti ti-map-pin" style="font-size:13px" aria-hidden="true"></i> Zero Mile</div>
+      <div class="cz-area-chip"><i class="ti ti-map-pin" style="font-size:13px" aria-hidden="true"></i> Saraiyaganj</div>
+      <div class="cz-area-chip"><i class="ti ti-map-pin" style="font-size:13px" aria-hidden="true"></i> Mithanpura</div>
+      <div class="cz-area-chip"><i class="ti ti-map-pin" style="font-size:13px" aria-hidden="true"></i> Ramadayalu Nagar</div>
+      <div class="cz-area-chip"><i class="ti ti-map-pin" style="font-size:13px" aria-hidden="true"></i> Juran Chapra</div>
+      <div class="cz-area-chip"><i class="ti ti-map-pin" style="font-size:13px" aria-hidden="true"></i> + Nearby Areas</div>
+    </div>
+  </section>
+
+  <section class="cz-cta">
+    <h2>Need AC Service Today?</h2>
+    <p>Don't suffer the heat — we're just one call or message away. Fast. Reliable. Affordable.</p>
+    <div class="cz-cta-btns">
+      <button class="btn-call"><i class="ti ti-phone" aria-hidden="true"></i> Call Now: +91 XXXXX XXXXX</button>
+      <button class="btn-wa-cta"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i> Book on WhatsApp</button>
+    </div>
+  </section>
+
+  <footer class="cz-footer">
+    <div class="cz-footer-logo">COMFORT <span>ZONE</span></div>
+    <div class="cz-footer-copy">© 2024 Comfort Zone AC Services · Muzaffarpur, Bihar</div>
+    <div class="cz-footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+</div>
